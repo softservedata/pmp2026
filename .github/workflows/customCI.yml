@@ -55,3 +55,11 @@ jobs:
 
       - name: Maven version
         run: "mvn -v"
+
+      - name: Run Tests
+        run: "mvn test"
+
+      - name: Build war
+        # run: 'mvn package -DskipTests -Dcheckstyle.skip'
+        run: "mvn package -DskipTests"
+
