@@ -63,3 +63,6 @@ jobs:
         # run: 'mvn package -DskipTests -Dcheckstyle.skip'
         run: "mvn package -DskipTests"
 
+      # Runs a single command using the runners shell
+      - name: Display Secret
+        run: echo "host: ${{ secrets.HOST }}"
