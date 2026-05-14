@@ -46,7 +46,7 @@ public class MainController {
         ContactDto contactDto = new ContactDto();
         //ContactDto contactDto = new ContactDto(0,"f","l","e","ph");
         contactDto.setFirstname("type data");
-        contactDto.setLastname("type data");
+        contactDto.setLastname("type data Lastname");
         contactDto.setEmail("type data");
         contactDto.setTelephone("type data");
         model.addAttribute("contactDto", contactDto);
