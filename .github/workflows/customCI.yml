@@ -65,4 +65,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Display Secret
-        run: echo "host: ${{ secrets.HOST }}"
+        run: echo "host: ${HOST}"
