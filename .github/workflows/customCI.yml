@@ -63,6 +63,14 @@ jobs:
         # run: 'mvn package -DskipTests -Dcheckstyle.skip'
         run: "mvn package -DskipTests"
 
-      # Runs a single command using the runners shell
-      - name: Display Secret
-        run: echo "host: ${HOST}"
+      # Copy results to the remote host over SSH
+      - name: Copy results to the remote host over SSH
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "target/dev.war"
+          target: "/home/azureuser/"
+          strip_components: 1
