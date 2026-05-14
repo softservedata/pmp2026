@@ -74,3 +74,11 @@ jobs:
           source: "target/dev.war"
           target: "/home/azureuser/"
           strip_components: 1
+
+      - name: Copy to tomcat server
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: sudo cp dev.war /usr/apache-tomcat-10.1.54/webapps/ && sudo chown -R azureuser:azureuser /usr/apache-tomcat-10.1.54/webapps/
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
